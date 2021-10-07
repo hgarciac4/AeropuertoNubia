@@ -1,6 +1,6 @@
 @echo off
 
-set "VIRTUAL_ENV=C:\Reto\backend\backend"
+set "VIRTUAL_ENV=C:\Reto\backend\aeropuertoNubia"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
@@ -38,7 +38,3 @@ if defined _OLD_VIRTUAL_PATH goto ENDIFVPATH2
 :ENDIFVPATH2
 
 set "PATH=%VIRTUAL_ENV%\Scripts;%PATH%"
-
-
-set "FLASK_APP=HolaMundo.py"
-set "FLASK_ENV=development"
