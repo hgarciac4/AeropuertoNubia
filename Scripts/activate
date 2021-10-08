@@ -82,5 +82,5 @@ pydoc () {
 # we made may not be respected
 hash -r 2>/dev/null
 
-set "FLASK_APP=HolaMundo.py"
+set "FLASK_APP=app.py"
 set "FLASK_ENV=development"

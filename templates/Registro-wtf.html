@@ -1,0 +1,91 @@
+<html>
+
+    <head>
+        <title>Registro WTF
+            
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/micss.css')}}" >
+
+    </head>
+
+    <body>
+
+        <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+        <div class="rectangulo2"></div>
+
+        <div>
+            <p align="center" class="titulo">Crear Cuenta</p> 
+            <p class="subtitulo">Si ya eres socio no necesitas crear una cuenta nueva. 
+            Inica Sesion con tus datos de siempre.</p> 
+            <p align="center" class="titulo2">Datos Personales</p> 
+            <p class="subtitulo">Ingresa tus datos tal como aparecen en tu documento de identidad. 
+                Los usaremos cuando compres tus pasajes.</p>                     
+        </div>
+
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="fuente">
+                <p>
+                    {{ form.identificacion.label }}
+                    {{ form.identificacion(size=30) }}
+                </p>
+
+                <p>
+                    {{ form.nombre.label }}
+                    {{ form.nombre(size=30) }}
+                </p>
+
+                <p>
+                    {{ form.apellidos.label }}
+                    {{ form.apellidos(size=30) }}
+                </p>
+
+                <p>
+                    {{ form.fechaNacimiento.label }}
+                    {{ form.fechaNacimiento() }}
+                </p>
+
+                <p>
+                    {{ form.genero.label }}
+                    {% for subfield in form.genero %}
+                    <tr>
+                        <p>
+                        {{ subfield }}
+                        {{ subfield.label }}</p>
+                    </tr>
+                    {% endfor %}
+                    <!-- <th>{{ form.genero }}</th> -->
+                </p>
+ 
+                <p>
+                    {{ form.telefono.label }}
+                    {{ form.telefono(size=30) }}
+                </p>  
+                
+                <p>
+                    {{ form.correo.label }}
+                    {{ form.correo(size=30) }}
+                </p>
+
+                <p>
+                    {{ form.contraseña.label }}
+                    {{ form.contraseña(size=30) }}
+                </p>
+
+                <p class="subtitulo2">Tu contraseña necesita tener mínimo 8 caracteres, 
+                    debe contener mínimo 1 mayúscula, 1 minúscula, 1 numero, y 1 carácter especial.</p>
+
+                <p>
+                    {{ form.condiciones() }}
+                    Acepto los términos y condiciones del Aeropuerto 
+                    La Nubia, y autorizo el tratamiento de mis datos personales de acuerdo a la Política de Privacidad 
+                </p>
+
+                <p>
+                    {{ form.registrar() }}
+                </p>
+            </div><img src="{{ url_for('static', filename='img/ojo.png')}}" class="Icon"></div> 
+        </form>
+    </body>
+</html>

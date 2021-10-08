@@ -1,15 +1,20 @@
-from flask import blueprints, render_template
+from flask import blueprints, render_template, request
+from forms import frmRegistrar
 
 main=blueprints.Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('Pagina de Inicio.html')
+    return render_template('Inicio-wtf.html')
 
-@main.route('/loguin')
+@main.route('/login')
 def loguin():
-    return render_template('Loguin.html')
+    return render_template('Login.html')
 
-@main.route('/registro')
+@main.route('/registro', methods=["GET", "POST"])
 def registro():
-    return render_template('Registro.html')
+    if request.method == 'POST':
+        return 'POST'
+    
+    x = frmRegistrar()
+    return render_template('Registro-wtf.html', form=x)
