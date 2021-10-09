@@ -139,8 +139,8 @@
 
 .Icon {
     position:absolute;
-    top:919px;
-    left:870px;
+    top:680px;
+    left: 425px;
     width:20px;
     height:20px;}
 
@@ -162,3 +162,4 @@ label {
     color: rgb(0, 135, 0); 
     text-align:center;       
 }
+
