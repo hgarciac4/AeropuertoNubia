@@ -1,15 +1,17 @@
-from flask import blueprints, render_template, request
+from flask import blueprints, render_template, request, url_for, redirect
 from forms import frmRegistrar
 
 main=blueprints.Blueprint('main', __name__)
 
 @main.route('/')
 def index():
-    return render_template('Inicio-wtf.html')
+    return render_template('Inicio.html')
 
-@main.route('/login')
-def loguin():
+
+@main.route('/login', methods=["GET"])
+def login():
     return render_template('Login.html')
+
 
 @main.route('/registro', methods=["GET", "POST"])
 def registro():

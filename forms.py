@@ -16,7 +16,7 @@ class frmRegistrar(FlaskForm):
     ])
     fechaNacimiento = DateField(
         "Fecha de Nacimiento",
-        format = '%d/%m/%a'
+        format = '%d/%m/%y'
     )
     genero = RadioField("Genero", choices=[('M','Masculino'),('F','Femenino'),('O','Otro')], validators=[
         DataRequired()
