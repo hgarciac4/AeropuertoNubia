@@ -22,3 +22,7 @@ def registro():
 @main.route('/restablecercontraseña')
 def restcontr():
     return render_template('Restablecer Contraseña.html')
+
+@main.route('/admin')
+def administrador():
+    return render_template('admin.html')
