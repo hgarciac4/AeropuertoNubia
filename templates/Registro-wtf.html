@@ -28,17 +28,17 @@
             <div class="fuente">
                 <p>
                     {{ form.identificacion.label }}
-                    {{ form.identificacion(size=30) }}
+                    {{ form.identificacion(size=60) }}
                 </p>
 
                 <p>
                     {{ form.nombre.label }}
-                    {{ form.nombre(size=30) }}
+                    {{ form.nombre(size=60) }}
                 </p>
 
                 <p>
                     {{ form.apellidos.label }}
-                    {{ form.apellidos(size=30) }}
+                    {{ form.apellidos(size=60) }}
                 </p>
 
                 <p>
@@ -60,32 +60,33 @@
  
                 <p>
                     {{ form.telefono.label }}
-                    {{ form.telefono(size=30) }}
+                    {{ form.telefono(size=60) }}
                 </p>  
                 
                 <p>
                     {{ form.correo.label }}
-                    {{ form.correo(size=30) }}
+                    {{ form.correo(size=60) }}
                 </p>
 
                 <p>
                     {{ form.contraseña.label }}
-                    {{ form.contraseña(size=30) }}
+                    {{ form.contraseña(size=60) }}
+                    <img src="{{ url_for('static', filename='img/ojo.png')}}" class="Icon">
                 </p>
 
                 <p class="subtitulo2">Tu contraseña necesita tener mínimo 8 caracteres, 
                     debe contener mínimo 1 mayúscula, 1 minúscula, 1 numero, y 1 carácter especial.</p>
 
-                <p>
+                <p align="justify" style="line-height:100%">
                     {{ form.condiciones() }}
                     Acepto los términos y condiciones del Aeropuerto 
                     La Nubia, y autorizo el tratamiento de mis datos personales de acuerdo a la Política de Privacidad 
                 </p>
 
-                <p>
+                <p class="button">
                     {{ form.registrar() }}
                 </p>
-            </div><img src="{{ url_for('static', filename='img/ojo.png')}}" class="Icon"></div> 
+            
         </form>
     </body>
 </html>
