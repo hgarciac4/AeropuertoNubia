@@ -113,19 +113,16 @@
     font-style:italic;
     font-family: Helvetica;
     color: rgb(0, 0, 51);
-    position:relative;
-    top:20px;
-
 }
 
 .subtitulo{
-    width: 402px;
-    height: 40px;  
+    width: 462px;
+    height:40px;  
     font-size: 14px;
     font-family: Helvetica;
     color: rgb(51, 51, 51); 
     position:relative;
-    left: 465.8px; 
+    left: 431.8px; 
     text-align:justify;       
 }
 
@@ -155,10 +152,10 @@ label {
 }
 
 .subtitulo2{
-    width: 452px;
+    width: 462px;
     height:40px;  
     font-size: 12px;
     font-family: Helvetica;
     color: rgb(0, 135, 0); 
-    text-align:center;       
+    text-align:justify;       
 }
