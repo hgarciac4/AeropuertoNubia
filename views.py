@@ -18,3 +18,7 @@ def registro():
     
     x = frmRegistrar()
     return render_template('Registro-wtf.html', form=x)
+
+@main.route('/restablecercontraseña')
+def restcontr():
+    return render_template('Restablecer Contraseña.html')
