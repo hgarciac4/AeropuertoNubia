@@ -16,7 +16,7 @@ class frmRegistrar(FlaskForm):
     ])
     fechaNacimiento = DateField(
         "Fecha de Nacimiento",
-        format = '%d/%m/%a'
+        format = '%d/%m/%y'
     )
     genero = RadioField("Genero", choices=[('M','Masculino'),('F','Femenino'),('O','Otro')], validators=[
         DataRequired()
@@ -31,3 +31,25 @@ class frmRegistrar(FlaskForm):
     ])
     condiciones = BooleanField("")
     registrar = SubmitField("Registrar")
+
+class frmLogin(FlaskForm):
+    correo = StringField("Email", validators=[
+        DataRequired(),
+        Email()
+    ])
+    contraseña = PasswordField("Contraseña", validators=[
+        DataRequired()
+    ])
+    iniciarsesion = SubmitField("Iniciar Sesion")
+
+class frmRecordarContraseña(FlaskForm):
+    dato = StringField("Dato de Identificación:", validators=[
+        DataRequired()
+    ])
+    newContraseña = PasswordField("Nueva Contraseña", validators=[
+        DataRequired()
+    ])
+    newContraseña2 = PasswordField("Confirmar Contraseña", validators=[
+        DataRequired()
+    ])
+    enviar = SubmitField("Enviar")

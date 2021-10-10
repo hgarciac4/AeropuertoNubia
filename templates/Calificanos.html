@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+<META charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='CSS/mioCSS.css') }}" />
+<link rel="stylesheet" type="text/css" media="print"  href="{{ url_for('static', filename='CSS/print.css') }}" />
+
+<script src="https://kit.fontawesome.com/d42f451a54.js" crossorigin="anonymous"></script>
+
+<title>Califica tu vuelo</title>
+
+
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+</head>
+<body>
+  <a href="{{ url_for('main.index') }}" method="GET">
+    <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+  </a>
+
+  <div class="menu">
+    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">Dashboard {{ tipo }}</a>
+    <a href="{{ url_for('main.consultaVuelo', tipo=tipo) }}">Consultar</a>
+    <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
+    <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+    <a href="{{ url_for('main.index') }}">Cerrar Sesion</a>
+  </div>
+
+  <div class="publicacion">
+    <h3 class="caja">CALIFICANOS</h3>
+
+    <wrapper div id='wrapper'>
+      <form action='' class='form'>
+        <p class='field required half'>
+          <label class='label required' for='name'>Ingresa el codigo de tu vuelo</label>
+          <input class='text-input' id='name' name='Origen' required type='text'>
+        </p>
+        
+        <p class='field'>
+          <input class='button' type='submit' value='Consultar'>
+        </p>
+        
+        <p class='field required half'>
+          <label class='label required' for='name'>Codigo</label>
+          <input class='text-input' id='name' name='Origen' required type='text'>
+        </p>
+        
+        <p class='field required half'>
+          <label class='label required' for='name'>Avion</label>
+          <input class='text-input' id='name' name='Origen' required type='text'>
+        </p>
+        
+        <p class='field required half'>
+          <label class='label required' for='name'>Piloto</label>
+          <input class='text-input' id='name' name='Origen' required type='text'>
+        </p>
+        
+        <p class='field required half'>
+          <label class='label required' for='name'>Estado</label>
+          <input class='text-input' id='name' name='Origen' required type='text'>
+        </p>
+        
+        <div class="txt-center">
+          <p class='field'>
+            <label class='label' for='message'>Calificación y comentarios</label>
+            <textarea class='textarea' cols='50' id='message' name='message' required rows='4'></textarea>
+          </p>
+   
+          <p class='field'>
+            <input class='button' type='submit' value='Enviar calificación'>
+          </p>
+        </div>
+   
+      </form>
+    </wrapper>
+  </div>
+</body>
+</html>
