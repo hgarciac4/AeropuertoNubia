@@ -10,8 +10,9 @@
     </head>
 
     <body>
-
-        <img src="{{ url_for('static', filename='img/Logo.jpeg') }}" alt="0" width="320" height="100" >
+        <a href="{{ url_for('main.index') }}" method="GET">
+            <img src="{{ url_for('static', filename='img/Logo.jpeg') }}" alt="0" width="320" height="100" >
+        </a>
         <div class="rectangulo2"></div>
 
         <div>
@@ -23,7 +24,7 @@
                 Los usaremos cuando compres tus pasajes.</p>                     
         </div>
 
-        <form action= {{ url_for("index") }} method="POST">
+        <form action= {{ url_for("main.index") }} method="POST">
             {{ form.hidden_tag() }}
             <div class="fuente">
                 <p>
@@ -50,9 +51,8 @@
                     {{ form.genero.label }}
                     {% for subfield in form.genero %}
                     <tr>
-                        <p>
                         {{ subfield }}
-                        {{ subfield.label }}</p>
+                        {{ subfield.label }}
                     </tr>
                     {% endfor %}
                     <!-- <th>{{ form.genero }}</th> -->
@@ -71,6 +71,7 @@
                 <p>
                     {{ form.contraseña.label }}
                     {{ form.contraseña(size=30) }}
+                    <img src="{{ url_for('static', filename='img/ojo.png')}}" class="userIcon">
                 </p>
 
                 <p class="subtitulo2">Tu contraseña necesita tener mínimo 8 caracteres, 
@@ -85,7 +86,7 @@
                 <p>
                     {{ form.registrar() }}
                 </p>
-            </div><img src="{{ url_for('static', filename='img/ojo.png')}}" class="Icon"></div> 
+            </div> 
         </form>
     </body>
 </html>

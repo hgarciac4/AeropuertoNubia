@@ -12,32 +12,29 @@
     <body>
 
         <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+        <p class="avion">
+            <img src="{{ url_for('static', filename='img/Avion2.jfif')}}" alt="imagen avion" width="1000" height="510"></div>
+        </p>
         
         <div class="rectangulo"></div>
-        
-            <p class="avion">
-                <img src="{{ url_for('static', filename='img/Avion2.jfif')}}" alt="imagen avion" width="1000" height="510"></div>
-                
-            </p>
 
-        <div class="piloto" >
-            <a href="{{ url_for('main.login') }}">
-                <img class="circular--square" src="{{ url_for('static', filename='img/piloto.jpg')}}" alt="Pilotos" >
-            </a>
-            <p align="center">PILOTOS</p> 
-        </div>         
-
+            <div class="piloto" >
+                <a href="{{ url_for('main.login', tipo='Piloto') }}">
+                    <img class="circular--square" src="{{ url_for('static', filename='img/piloto.jpg')}}" alt="Pilotos" >
+                </a>
+                <p align="center">PILOTOS</p> 
+            </div>         
         </div> 
 
         <div class="cliente">
-            <a href="{{ url_for('main.login') }}">
+            <a href="{{ url_for('main.login', tipo='Usuario') }}">
                 <img class="circular--square" src="{{ url_for('static',filename='img/cliente.jfif')}}" alt="clientes">
             </a>
             <p align="center">CLIENTES</p>
         </div> 
        
         <div class="administrador">
-            <a href="{{ url_for('main.login') }}">
+            <a href="{{ url_for('main.login', tipo='Admin') }}">
                 <img class="circular--square" src="{{ url_for('static',filename='img/corporativo.jpg')}}" alt="CORPORATIVO">
             </a>
             <p align="center">CORPORATIVO</p>
