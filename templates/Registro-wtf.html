@@ -1,12 +1,14 @@
 <html>
-
     <head>
-        <title>Registro WTF
-            
-        </title>
+        <title>Registro</title>
 
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/micss.css')}}" >
-
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/miocss.css')}}" >
+        <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
     </head>
 
     <body>
@@ -24,54 +26,66 @@
                 Los usaremos cuando compres tus pasajes.</p>                     
         </div>
 
-        <form action= {{ url_for("main.index") }} method="POST">
+        <form action= {{ url_for("main.index") }} method="POST" class='form' >
             {{ form.hidden_tag() }}
-            <div class="fuente">
+            <div class="publicacion">
                 <p>
-                    {{ form.identificacion.label }}
-                    {{ form.identificacion(size=30) }}
+                    <div>
+                        {{ form.identificacion.label(class_='label') }}
+                        {{ form.identificacion(size=30, class_='text-input') }}
+                    </div>
                 </p>
 
                 <p>
-                    {{ form.nombre.label }}
-                    {{ form.nombre(size=30) }}
+                    {{ form.nombre.label(class_='label') }}
+                    {{ form.nombre(size=30, class_='text-input') }}
                 </p>
 
                 <p>
-                    {{ form.apellidos.label }}
-                    {{ form.apellidos(size=30) }}
+                    {{ form.apellidos.label(class_='label') }}
+                    {{ form.apellidos(size=30, class_='text-input') }}
                 </p>
 
                 <p>
-                    {{ form.fechaNacimiento.label }}
-                    {{ form.fechaNacimiento() }}
+                    <div class='input-group date' id='datetimepicker1'>
+                        {{ form.fechaNacimiento.label(class_='label') }}  
+                        {{ form.fechaNacimiento(class_='text-input') }}
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
                 </p>
 
+                <p>{{ form.genero.label() }}</p>
                 <p>
-                    {{ form.genero.label }}
                     {% for subfield in form.genero %}
                     <tr>
                         {{ subfield }}
                         {{ subfield.label }}
                     </tr>
                     {% endfor %}
-                    <!-- <th>{{ form.genero }}</th> -->
                 </p>
  
                 <p>
-                    {{ form.telefono.label }}
-                    {{ form.telefono(size=30) }}
+                    {{ form.telefono.label(class_='label') }}
+                    {{ form.telefono(size=30, class_='text-input') }}
                 </p>  
                 
                 <p>
-                    {{ form.correo.label }}
-                    {{ form.correo(size=30) }}
+                    {{ form.correo.label(class_='label') }}
+                    {{ form.correo(size=30, class_='text-input') }}
                 </p>
 
                 <p>
-                    {{ form.contraseña.label }}
-                    {{ form.contraseña(size=30) }}
-                    <img src="{{ url_for('static', filename='img/ojo.png')}}" class="userIcon">
+                    <div onfocusout="validarcontraseña()">
+                        {{ form.contraseña.label(class_='label') }}
+                        {{ form.contraseña(size=30, class_='text-input') }}
+                        <div class="input-group-append">
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarClave();" >
+                                <i id="icono" name="icono" class="fa fa-eye-slash"></i>
+                            </button>
+                        </div>
+                    </div>
                 </p>
 
                 <p class="subtitulo2">Tu contraseña necesita tener mínimo 8 caracteres, 
@@ -84,7 +98,7 @@
                 </p>
 
                 <p>
-                    {{ form.registrar() }}
+                    {{ form.registrar(class_='button') }}
                 </p>
             </div> 
         </form>

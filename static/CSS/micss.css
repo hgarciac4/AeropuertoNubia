@@ -60,7 +60,7 @@
 
 .formulario{
     border-radius: 10%;
-    width:455px;
+    width:468px;
     height:593px;
     border: 3px solid rgb(102, 102, 102);
     position:absolute;
@@ -68,7 +68,7 @@
     left: 439px;}
 
 .rectangulo3{
-    width: 455px;
+    width: 462px;
     height:40px;
     background: rgb(0, 0, 51);
     position:absolute;
@@ -162,3 +162,4 @@ label {
     color: rgb(0, 135, 0); 
     text-align:center;       
 }
+

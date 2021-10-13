@@ -9,7 +9,6 @@
 
 <title>Reserva tu vuelo</title>
 
-
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
 </head>
 <body>
@@ -18,10 +17,19 @@
   </a>
 
   <div class="menu">
-    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">Dashboard {{ tipo }}</a>
+    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">
+    {% if tipo == "Admin" %}
+        Agregar Vuelo
+    {% else %}
+        Dashboard {{ tipo }}</a>
+    {% endif %}
     <a href="{{ url_for('main.consultaVuelo', tipo=tipo) }}">Consultar</a>
-    <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
-    <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+    
+    {% if tipo == "Usuario" %}
+      <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
+      <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+    {% endif %}
+    
     <a href="{{ url_for('main.index') }}">Cerrar Sesion</a>
   </div>
 

@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" media="print"  href="{{ url_for('static', filename='CSS/print.css') }}" />
 
 <script src="https://kit.fontawesome.com/d42f451a54.js" crossorigin="anonymous"></script>
+
 <title>Consulta tu vuelo</title>
 
 <link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
@@ -16,10 +17,19 @@
   </a>
 
   <div class="menu">
-    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">Dashboard {{ tipo }}</a>
+    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">
+    {% if tipo == "Admin" %}
+        Agregar Vuelo
+    {% else %}
+        Dashboard {{ tipo }}</a>
+    {% endif %}
     <a href="{{ url_for('main.consultaVuelo', tipo=tipo) }}">Consultar</a>
-    <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
-    <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+
+    {% if tipo == "Usuario" %}
+      <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
+      <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+    {% endif %}
+    
     <a href="{{ url_for('main.index') }}">Cerrar Sesion</a>
   </div>
 
@@ -58,6 +68,16 @@
           <label class='label required' for='name'>Estado</label>
           <input class='text-input' id='name' name='Origen' required type='text'>
         </p>
+
+        {% block content %}
+        {% if tipo == "Admin" %}
+          <p class='field'>
+            <input class='button' type='submit' value='Editar'>
+        
+            <input class='button' type='submit' value='Eliminar'>
+          </p>
+        {% endif %}
+        {% endblock content %}
 
       </form>
     </wrapper>

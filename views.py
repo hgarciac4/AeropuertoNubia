@@ -1,9 +1,10 @@
 from flask import blueprints, render_template, request, url_for, redirect
 from forms import frmRegistrar, frmLogin, frmRecordarContraseña
+import re
 
 main=blueprints.Blueprint('main', __name__)
 
-@main.route('/', method="GET")
+@main.route('/', methods=["GET"])
 def index():
     return render_template('Inicio.html')
 
@@ -58,16 +59,20 @@ def reservaVuelo(tipo=None):
 @main.route('/registro', methods=["GET", "POST"])
 def registro():
     x = frmRegistrar()    
-    if request.method == 'POST':
-        return render_template('Registro-wtf.html', form=x)
-
-    return redirect(url_for('main.inicio'))
+    return render_template('Registro-wtf.html', form=x)
 
 
-@main.route('/restaurar_contraseña', methods=["GET", "POST"])
+@main.route('/restaurar_contraseña', methods=["GET"])
 def restaurar_contraseña():
     x = frmRecordarContraseña()
-    if request.method == 'POST':
-        return render_template('RestablecerContraseña-wtf.html', form=x)
+    return render_template('RestablecerContraseña-wtf.html', form=x)
 
-    return redirect(url_for('main.inicio'))
+
+def validar_contraseña(password):
+    if len(password) >= 8:
+        if re.search('[a-z]', password) and re.search('[A-Z]', password):
+            if re.search('[0-9]', password):
+                if re.search('[$@#]', password):
+                    return True;
+
+    return False;

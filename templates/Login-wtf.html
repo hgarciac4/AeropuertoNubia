@@ -2,6 +2,11 @@
     <head>
         <title>Iniciar Sesion {{tipo}}</title>
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/micss.css')}}" >
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/miocss.css')}}" >
+        <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 
     <body>  
@@ -19,31 +24,39 @@
             <div class="rectangulo3"><p align="center">INICIAR SESIÓN</p></div>
         </p>
 
-        <form action= {{ url_for("main.dashboard", tipo=tipo) }} method="GET">
+        <form action= {{ url_for("main.dashboard", tipo=tipo) }} method="GET" class='form' >
             {{ form.hidden_tag() }}
 
             <div class="fuente">
                 <p>
-                    {{ form.correo.label }}
-                    {{ form.correo(size=30) }}
+                    {{ form.correo.label(class_='label') }}
+                    {{ form.correo(size=30, class_='text-input') }}
                 </p>
 
                 <p>
-                    {{ form.contraseña.label }}
-                    {{ form.contraseña(size=30) }}
-                    <img src="{{ url_for('static', filename='img/ojo.png')}}" class="userIcon">
+                    <div class="input-group">
+                        {{ form.contraseña.label(class_='label') }}
+                        <div onfocusout="validarcontraseña()">{{ form.contraseña(class_='text-input') }}</div>
+                        <div class="input-group-append">
+                            <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarClave();" >
+                                <i id="icono" name="icono" class="fa fa-eye-slash"></i>
+                            </button>
+                        </div>
+                    </div>
                 </p>
-<!--                 
-                <p>
-                    {{ form.tipo }}
-                </p> -->
 
-                <a href="{{ url_for('main.restaurar_contraseña') }}" class="fuente2">Olvidaste tu contraseña</a>                         
+                <p>{{ form.iniciarsesion(class_='button') }}</p>
                 
-                <div class="button">
-                    <p>{{ form.iniciarsesion() }}</p>
-                    <a href="{{ url_for('main.registro') }}" align="left" class="fuente2">Crear Cuenta</p> 
-                </div>       
+                <p>
+                    <div >
+                        <a href="{{ url_for('main.restaurar_contraseña') }}" class="fuente2">Olvidaste tu contraseña</a>                         
+                        {% if tipo == "Piloto" %}
+                            <a align="left" class="fuente2" onclick="alertaPiloto();">Crear Cuenta</p> 
+                        {% else %}
+                            <a href="{{ url_for('main.registro') }}" align="left" class="fuente2">Crear Cuenta</p> 
+                        {% endif %}
+                    </div>  
+                </p>                     
             </div>
         </form>        
 

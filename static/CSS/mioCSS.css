@@ -772,12 +772,12 @@ body {
   padding-left: 0;
 }
 
-.form .label {
+/* .form .label {
   top: 0;
   left: 0;
   color: rgba(0, 0, 0, 0.7);
   transition: color 0.3s;
-}
+} */
 .active .form .label, .form .active .label {
   font-size: 0.75em;
   line-height: 1;

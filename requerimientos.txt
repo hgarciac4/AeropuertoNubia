@@ -1,0 +1,5 @@
+flask
+flask-WTF
+email-validator
+pip install flask-bootstrap
+python -m pydoc -b

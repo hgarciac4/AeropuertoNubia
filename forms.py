@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, IntegerField, DateField, BooleanField, RadioField
 from wtforms.validators import DataRequired, Email, Length
+from wtforms.fields.html5 import EmailField
 
 class frmRegistrar(FlaskForm):
     identificacion = IntegerField("identificacion", validators=[
@@ -22,7 +23,7 @@ class frmRegistrar(FlaskForm):
         DataRequired()
     ])
     telefono = IntegerField("Telefono")
-    correo = StringField("Correo", validators=[
+    correo = EmailField("Correo", validators=[
         DataRequired(),
         Email()
     ])
@@ -33,7 +34,7 @@ class frmRegistrar(FlaskForm):
     registrar = SubmitField("Registrar")
 
 class frmLogin(FlaskForm):
-    correo = StringField("Email", validators=[
+    correo = EmailField("Email", validators=[
         DataRequired(),
         Email()
     ])
