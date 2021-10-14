@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+<META charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='CSS/mioCSS.css') }}" />
+<link rel="stylesheet" type="text/css" media="print"  href="{{ url_for('static', filename='CSS/print.css') }}" />
+
+<script src="https://kit.fontawesome.com/d42f451a54.js" crossorigin="anonymous"></script>
+        
+<title>Dashboard {{ tipo }}</title>
+
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+</head>
+<body>
+    <a href="{{ url_for('main.index') }}" method="GET">
+        <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+    </a>
+
+    <div class="menu">
+        <a href="{{ url_for('main.dashboard', tipo=tipo) }}">
+        {% if tipo == "Admin" %}
+            Agregar Vuelo
+        {% else %}
+            Dashboard {{ tipo }}</a>
+        {% endif %}
+        <a href="{{ url_for('main.consultaVuelo', tipo=tipo) }}">Consultar</a>
+
+        
+        {% if tipo == "Usuario" %}
+            <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
+            <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+        {% endif %}
+        
+        <a href="{{ url_for('main.index') }}">Cerrar Sesion</a>
+      </div>
+    
+    <div>
+        {% block content %}
+        {% if tipo == "Usuario" %}
+            <div id="cpestana1">
+                
+                <select class="select">
+                    <option disabled="">Selecciona el usuario</option>
+                    <option value="Nancy Castellanos Torres">Nancy Castellanos Torres</option>
+                    <option value="Fabian Beltran Bustos">Fabian Beltran Busto</option>
+                    <option value="Heygler Garcia Castro">Heygler Garcia Castro</option>
+                    <option value="Yezid Martinez Gomez">Yezid Martinez Gomez</option>
+                </select> 
+                
+                <form  class='form'>
+                    <input class="text-input" type="text" id="nombre" name="nombre" placeholder="Nombre"/><br><br>
+                    <input class="text-input" type="text" id="apellido" name="apellido" placeholder="Apellidos"/><br><br> 
+                    <input class="text-input" type="text" id="cedula" name="cedula" placeholder="Cedula"/><br><br> 
+                    <input class="text-input" type="text" id="edad" name="edad" placeholder="Edad"/><br><br> 
+                    <input class="text-input" type="text" id="correo" name="correo" placeholder="Correo"/><br><br>
+                    <input class="text-input" type="text" id="telefono" name="telefono" placeholder="Telefono" /><br><br> 
+                    <input class="text-input" type="text" id="direccion" name="direccion" placeholder="Direccion"/><br><br>                       
+                    
+                    <select class="select">
+                        <option disabled="">Vuelos reservados</option>
+                        <option value="Santa Marta">Santa Marta</option>
+                        <option value="Bogota">Bogota</option>
+                        <option value="Medellin">Medellin</option>
+                        <option value="Pereira">Pereira</option>
+                    </select> 
+                    
+                    <br><br><br><br><br><br>
+                    <a class="button" href="https://www.google.com">EDITAR</a>
+                </form>
+                
+            </div>
+
+        {% elif tipo == "Piloto" %}
+            <div id="cpestana2">
+                            
+                <select class="select">
+                    <option disabled="">Selecciona el piloto</option>
+                    <option value="Nancy Castellanos Torres">Nancy Castellanos Torres</option>
+                    <option value="Fabian Beltran Bustos">Fabian Beltran Busto</option>
+                    <option value="Heygler Garcia Castro">Heygler Garcia Castro</option>
+                    <option value="Yezid Martinez Gomez">Yezid Martinez Gomez</option>
+                </select> 
+                
+                <form  class='form'>
+                    <input class="text-input" type="text" id="nombre" name="nombre" placeholder="Nombre"/><br><br>
+                    <input class="text-input" type="text" id="apellido" name="apellido" placeholder="Apellidos"/><br><br> 
+                    <input class="text-input" type="text" id="cedula" name="cedula" placeholder="Cedula"/><br><br> 
+                    <input class="text-input" type="text" id="edad" name="edad" placeholder="Edad"/><br><br> 
+                    <input class="text-input" type="text" id="correo" name="correo" placeholder="Correo"/><br><br>
+                    <input class="text-input" type="text" id="telefono" name="telefono" placeholder="Telefono" /><br><br> 
+                    <input class="text-input" type="text" id="direccion" name="direccion" placeholder="Direccion"/><br><br> 
+                    <input class="text-input" type="text" id="origen" name="origen" placeholder="Origen"/><br><br> 
+                    <input class="text-input" type="text" id="destino" name="destino" placeholder="Destino"/><br><br> 
+                    <input class="text-input" type="text" id="hora" name="hora" placeholder="Hora"/><br><br> 
+                    <input class="text-input" type="text" id="avion" name="avion" placeholder="Avion"/><br><br> 
+                    
+                    <select class="select">
+                        <option disabled="">Seleccione el vuelo</option>
+                        <option value="Santa Marta">Santa Marta</option>
+                        <option value="Bogota">Bogota</option>
+                        <option value="Medellin">Medellin</option>
+                        <option value="Pereira">Pereira</option>
+                    </select> 
+                    <br><br><br><br><br><br><br><br>
+                    <a class="button" href="https://www.google.com">EDITAR</a>
+                </form>
+            </div>
+        
+        {% else %}
+            <form id="cpestana3"  class='form'>
+                <p>
+                <label class='caja2' for='name'>Ciudad de origen</label>
+                <select class="select">
+                    <option disabled="">Seleccionar ciudad de origen</option>
+                    <option value="Santa Marta">Santa Marta</option>
+                    <option value="Bogota">Bogota</option>
+                    <option value="Medellin">Medellin</option>
+                    <option value="Pereira">Pereira</option>
+                </select>   
+                
+                <label class='caja2' for='name'>Ciudad de destino</label>
+                <select class="select">
+                    <option disabled="">Seleccionar ciudad destino</option>
+                    <option value="Santa Marta">Santa Marta</option>
+                    <option value="Bogota">Bogota</option>
+                    <option value="Medellin">Medellin</option>
+                    <option value="Pereira">Pereira</option>
+                </select>   
+                </p>
+
+                <p>
+                <label class='caja2' for='name'>Seleccionar Avion</label>
+                <select class="select">
+                    <option disabled="">Seleccionar Avion</option>
+                    <option value="Santa Marta">Airbus A330</option>
+                    <option value="Bogota">Airbus A321</option>
+                    <option value="Medellin">Airbus A320</option>
+                    <option value="Pereira">Airbus A319</option>
+                </select> 
+                <br><br><br><br><br><br>
+                
+                <label class='caja2' for='name'>Seleccionar Piloto</label>
+                <select class="select">
+                    <option disabled="">Selecciona el piloto</option>
+                    <option value="Nancy Castellanos Torres">Nancy Castellanos Torres</option>
+                    <option value="Fabian Beltran Bustos">Fabian Beltran Busto</option>
+                    <option value="Heygler Garcia Castro">Heygler Garcia Castro</option>
+                    <option value="Yezid Martinez Gomez">Yezid Martinez Gomez</option>
+                </select> 
+                </p>
+
+                <label class='caja2' for='name'>Selecciona hora de salida</label>
+                <select class="select">
+                    <option disabled="">Selecciona la hora</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                </select> 
+
+                <input class="text-input" type="text" id="cupos" name="cupos" placeholder="Asignar cupos"/><br><br> 
+
+                <br><br><br><br><br><br>
+                <a class="button" href="https://www.google.com">EDITAR</a>
+                <a class="button" href="https://www.google.com">ELIMINAR</a>
+                                                            
+            </form>  
+
+        {% endif %}
+        {% endblock content %}
+    </div>
+</body>
+</html>
+
+

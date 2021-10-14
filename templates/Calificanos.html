@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="sp">
+<head>
+<META charset="utf-8"/>
+<link rel="stylesheet" type="text/css" media="screen" href="{{ url_for('static', filename='CSS/mioCSS.css') }}" />
+<link rel="stylesheet" type="text/css" media="print"  href="{{ url_for('static', filename='CSS/print.css') }}" />
+
+<script src="https://kit.fontawesome.com/d42f451a54.js" crossorigin="anonymous"></script>
+
+<title>Califica tu vuelo</title>
+
+<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+</head>
+<body>
+  <a href="{{ url_for('main.index') }}" method="GET">
+    <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+  </a>
+
+  <div class="menu">
+    <a href="{{ url_for('main.dashboard', tipo=tipo) }}">
+    {% if tipo == "Admin" %}
+        Agregar Vuelo
+    {% else %}
+        Dashboard {{ tipo }}</a>
+    {% endif %}
+    <a href="{{ url_for('main.consultaVuelo', tipo=tipo) }}">Consultar</a>
+    
+    {% if tipo == "Usuario" %}
+      <a href="{{ url_for('main.reservaVuelo', tipo=tipo) }}">Reservar</a>
+      <a href="{{ url_for('main.calificaVuelo', tipo=tipo) }}">Calificanos</a>
+    {% endif %}
+    
+    <a href="{{ url_for('main.index') }}">Cerrar Sesion</a>
+  </div>
+
+  <div class="publicacion">
+    <h3 class="caja">CALIFICANOS</h3>
+
+    <wrapper div id='wrapper'>
+      <form action='' class='form'>
+        <p class='field required half'>
+          <label class='label required' for='name'></label>
+          <input class='text-input' id='name' name='Origen' placeholder="Ingresa el codigo de tu vuelo" required type='text'>
+        </p>
+        
+        <p class='field'>
+          <input class='button' type='submit' value='Consultar'>
+        </p>
+        
+        <p class='field required half'>Código
+          <label class='label required' for='name'></label>
+          <input class='text-input' id='name' name='Código' required type='text'>
+        </p>
+        
+        <p class='field required half'>Avión
+          <label class='label required' for='name'></label>
+          <input class='text-input' id='name' name='Avión' required type='text'>
+        </p>
+        
+        <p align="center">
+        <p class='field required half'>Piloto
+          <label class='label required' for='name'></label>
+          <input class='text-input' id='name' name='Piloto' required type='text'>
+        </p>
+        
+        <p class='field required half'>Estado
+          <label class='label required' for='name'></label>
+          <input class='text-input' id='name' name='Estado' required type='text'>
+        </p>
+        
+        <div class="txt-center">
+          <p class='field'>Calificación y comentarios
+            <label class='label' for='message'></label>
+            <textarea class='textarea' cols='50' id='message' name='message' required rows='4'></textarea>
+          </p>
+   
+          <p class='field'>
+            <input class='button' type='submit' value='Enviar calificación'>
+          </p>
+        </div>
+   
+      </form>
+    </wrapper>
+  </div>
+</body>
+</html>

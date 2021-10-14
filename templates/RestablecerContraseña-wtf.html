@@ -1,0 +1,59 @@
+<html>
+
+    <head>
+        <title>Restablecer Contraseña
+            
+        </title>
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='CSS/micss.css')}}" >
+
+    </head>
+
+    <body>
+        <a href="{{ url_for('main.index') }}" method="GET">
+            <img src="{{ url_for('static', filename='img/Logo.jpeg')}}" alt="0" width="320" height="100" >
+        </a>
+        <div class="rectangulo2"></div>
+
+        <div>
+            <img class="fondo" src="{{ url_for('static', filename='img/Fondo.jpeg')}}" alt="fondo de avion">
+        </div>
+
+        <div>
+            <div class="formulario"></div>            
+            <p align="center" class="titulo">Restablece tu Contraseña</p>
+            <p class="subtitulo"></p>
+            <p class="subtitulo">Ingresa solo uno de estos datos de identificación para recuperar tu acceso:</p> 
+            <ul class="subtitulo" style="list-style-type: square">
+                <li>E-mail registrado</li>
+                <li>Número de Identificación</li>
+            </ul>
+        
+        <form action= {{ url_for("main.login") }} method="POST">
+            <div class="fuente">
+                <p>
+                    {{ form.dato.label }}
+                    {{ form.dato(size=60) }}
+                </p>
+                <p>
+                    {{ form.newContraseña.label }}
+                    {{ form.newContraseña(size=60) }}
+                </p>
+                <p>
+                    {{ form.newContraseña2.label }}
+                    {{ form.newContraseña2(size=60) }}
+                </p>
+                
+                <p class="subtitulo2">Tu contraseña necesita tener mínimo 8 caracteres, 
+                    debe contener mínimo 1 mayúscula, 1 minúscula, 1 numero, y 1 carácter especial.</p>
+                
+                    <div class="button">
+                        <p>{{ form.enviar() }}</p>
+                    </div>  
+                </div>
+            </div>
+        </form>
+   
+    </body>
+
+</html>
