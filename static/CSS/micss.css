@@ -1,0 +1,169 @@
+.rectangulo{
+    width: 1000px;
+    height:10px;
+    background:rgb(0, 0, 51);
+    position:absolute;
+    top: 110px;}            
+.avion{
+    width: 1000px;
+    height: 400px;
+    opacity: 0.7;
+    position:absolute;
+    top: 104px;}
+
+.piloto{
+    border-radius: 50%;
+    width:180px;
+    height:180px;
+    position: absolute;
+    top: 50px; 
+    left: 1099px;
+    font-size: 18px;
+    font-family: Helvetica;
+    color: rgb(0, 0, 0);}
+
+.cliente{
+    position: absolute;
+    top: 252px; 
+    left: 1099px;
+    font-size: 18px;
+    font-family: Helvetica;
+    color: rgb(0, 0, 0);}
+
+.administrador{
+    position: absolute;
+    top: 464px; 
+    left: 1099px;
+    font-size: 18px;
+    font-family: Helvetica;
+    color: rgb(0, 0, 0);}
+
+.circular--square {
+    border-radius: 50%;
+    width:180px;
+    height:140px;}
+
+.rectangulo2{
+    width: 1334px;
+    height:10px;
+    background:rgb(0, 0, 51);
+    position:absolute;
+    top: 110px;}        
+
+.fondo{
+    width: 1334px;
+    height: 623px;
+    position:absolute;
+    top: 120px; 
+    opacity: 0.5;
+    z-index: -3;}
+
+.formulario{
+    border-radius: 10%;
+    width:468px;
+    height:593px;
+    border: 3px solid rgb(102, 102, 102);
+    position:absolute;
+    top: 130px;
+    left: 439px;}
+
+.rectangulo3{
+    width: 462px;
+    height:40px;
+    background: rgb(0, 0, 51);
+    position:absolute;
+    top: 258px;     
+    left: 441.8px; 
+    font-size: 18px;
+    font-family: Helvetica;
+    color: rgb(255, 255, 255);} 
+
+.fuente{
+    width: 462px;
+    position:absolute;
+    top: 358px;     
+    left: 441.8px;
+    line-height: 75%;
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(51, 51, 51);}
+
+.fuente2{
+    position:relative;
+    left: 0px;
+    line-height: 100%;
+    font-size: 12px;
+    font-family: Helvetica;
+    color: rgb(0, 0, 204);
+    text-decoration: underline rgb(0, 0, 204);}
+
+.button2{
+    position:relative;
+    top: 100px;     
+    left: 80px;
+    width:20px;
+    height:20px;
+}
+
+.userIcon {
+    position:absolute;
+    top:476px;
+    left:870px;
+    width:20px;
+    height:20px;}
+
+.titulo{    
+    font-size: 23px;
+    font-style:italic;
+    font-family: Helvetica;
+    color: rgb(0, 0, 51);
+    position:relative;
+    top:20px;
+
+}
+
+.subtitulo{
+    width: 402px;
+    height: 40px;  
+    font-size: 14px;
+    font-family: Helvetica;
+    color: rgb(51, 51, 51); 
+    position:relative;
+    left: 465.8px; 
+    text-align:justify;       
+}
+
+.titulo2{    
+    font-size: 23px;
+    font-family: Helvetica;
+    color: rgb(0, 0, 51);
+    position:relative;
+    left: 0; 
+}
+
+.Icon {
+    position:absolute;
+    top:680px;
+    left: 425px;
+    width:20px;
+    height:20px;}
+
+label {
+    display: block;
+    font: 1rem 'Fira Sans', sans-serif;
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+.subtitulo2{
+    width: 452px;
+    height:40px;  
+    font-size: 12px;
+    font-family: Helvetica;
+    color: rgb(0, 135, 0); 
+    text-align:center;       
+}
+
